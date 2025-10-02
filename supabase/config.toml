@@ -1,1 +1,7 @@
 project_id = "eauwnbrwsktksqhtwvps"
+
+[functions.ai-travel-chat]
+verify_jwt = false
+
+[functions.generate-itinerary]
+verify_jwt = false

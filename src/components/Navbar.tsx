@@ -25,8 +25,13 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="hidden sm:inline-flex">Sign In</Button>
-          <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
+          <Button variant="ghost" className="hidden sm:inline-flex" onClick={() => window.location.href = '/auth'}>
+            Sign In
+          </Button>
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
+            onClick={() => window.location.href = '/auth'}
+          >
             Get Started
           </Button>
         </div>
