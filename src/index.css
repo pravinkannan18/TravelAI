@@ -103,4 +103,94 @@ All colors MUST be HSL.
   .card-glow {
     box-shadow: 0 0 40px hsl(var(--primary) / 0.2), 0 10px 40px hsl(220 30% 0% / 0.5);
   }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow), 0 4px 20px hsl(220 30% 0% / 0.3);
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-3d-float {
+    animation: 3d-float 8s ease-in-out infinite;
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    text-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0px);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-5px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotateX(10deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotateX(0deg) rotateY(10deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateX(-10deg) rotateY(5deg);
+  }
+}
+
+/* Additional gradient utilities for enhanced visibility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.bg-gradient-conic {
+  background: conic-gradient(var(--tw-gradient-stops));
 }
