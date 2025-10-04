@@ -29,8 +29,8 @@ export const HowItWorksStep = ({ icon: Icon, step, title, description, delay = 0
         </div>
       </div>
       <div className="flex-1 pt-2">
-        <h3 className="text-2xl font-bold mb-2 text-foreground">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed text-lg">{description}</p>
+        <h3 className="heading-5 mb-2 text-foreground">{title}</h3>
+        <p className="body-text text-muted-foreground">{description}</p>
       </div>
     </motion.div>
   );

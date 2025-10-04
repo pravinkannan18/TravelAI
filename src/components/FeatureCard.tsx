@@ -126,7 +126,7 @@ export const FeatureCard = ({
         {/* Content */}
         <div className="space-y-4">
           <motion.h3 
-            className="text-2xl font-bold text-foreground group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-foreground group-hover:to-primary transition-all duration-300"
+            className="heading-5 text-foreground group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-foreground group-hover:to-primary transition-all duration-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: delay + 0.2 }}
@@ -135,7 +135,7 @@ export const FeatureCard = ({
           </motion.h3>
           
           <motion.p 
-            className="text-muted-foreground leading-relaxed text-base"
+            className="card-description text-base"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: delay + 0.4 }}

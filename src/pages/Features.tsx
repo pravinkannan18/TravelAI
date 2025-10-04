@@ -15,35 +15,31 @@ const Features = () => {
     {
       icon: Sparkles,
       title: "AI Trip Planner",
-      description: "Get custom day-by-day itineraries based on your budget, preferences, and travel style. Our AI analyzes millions of travel data points to create the perfect trip for you.",
+      description: "Custom day-by-day itineraries based on your budget and preferences.",
       badge: "Smart AI",
       features: [
-        "Personalized recommendations based on your interests",
-        "Budget optimization with cost-effective suggestions",
-        "Schedule flexibility with break times included",
-        "Real-time adjustments as your plans change",
-        "Weather-aware planning for optimal experiences",
-        "Local event integration for authentic experiences"
+        "Personalized recommendations",
+        "Budget optimization",
+        "Weather-aware planning",
+        "Real-time adjustments"
       ]
     },
     {
       icon: Calendar,
       title: "Book Everything",
-      description: "Reserve flights, hotels, and activities in one place. Real-time pricing, instant confirmation, and seamless coordination across all your bookings.",
+      description: "Reserve flights, hotels, and activities in one place with instant confirmation.",
       badge: "All-in-One",
       features: [
-        "Flight booking with best price guarantees",
-        "Hotel reservations with verified reviews",
-        "Activity tickets and tours pre-booking",
-        "Instant confirmation for peace of mind",
-        "Synchronized schedules across all bookings",
-        "24/7 booking support and modifications"
+        "Flight booking with best prices",
+        "Hotel reservations with reviews",
+        "Activity tickets and tours",
+        "Instant confirmation"
       ]
     },
     {
       icon: Camera,
       title: "Social Media Inspiration",
-      description: "Paste Instagram, TikTok, or X links and let AI add those exact places to your trip. Turn social media inspiration into reality instantly.",
+      description: "Paste Instagram, TikTok, or X links and let AI add those places to your trip.",
       badge: "Social Integration",
       features: [
         "Instagram post location extraction",
@@ -57,7 +53,7 @@ const Features = () => {
     {
       icon: MessageCircle,
       title: "24/7 AI Chat",
-      description: "Ask questions anytime in your language. Get expert travel recommendations, adjust plans on the go, and find answers instantly.",
+      description: "Ask questions anytime in your language. Get expert travel recommendations instantly.",
       badge: "Always Available",
       features: [
         "Multi-language support (25+ languages)",
@@ -71,7 +67,7 @@ const Features = () => {
     {
       icon: Bitcoin,
       title: "Crypto Payments",
-      description: "Pay with cryptocurrency like USDC for modern, secure transactions. Collect unique digital NFT souvenirs from your travels.",
+      description: "Pay with cryptocurrency like USDC. Collect unique digital NFT souvenirs.",
       badge: "Web3 Ready",
       features: [
         "USDC and major crypto payments",
@@ -85,7 +81,7 @@ const Features = () => {
     {
       icon: Leaf,
       title: "Eco-Friendly Options",
-      description: "Choose sustainable flights and hotels. Offset your carbon footprint automatically and travel responsibly with verified eco-partners.",
+      description: "Choose sustainable flights and hotels. Offset your carbon footprint automatically.",
       badge: "Sustainable",
       features: [
         "Automatic carbon footprint offsetting",
@@ -149,7 +145,7 @@ const Features = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-8 text-gradient leading-tight"
+              className="display-text mb-8 text-gradient leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -160,7 +156,7 @@ const Features = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-muted-foreground mb-12 leading-relaxed"
+              className="body-large text-muted-foreground mb-12 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -187,7 +183,7 @@ const Features = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-primary/30 hover:border-primary px-8 py-4"
-                onClick={() => window.location.href = '/auth'}
+                onClick={() => window.location.href = '/dashboard'}
               >
                 Get Started Free
               </Button>

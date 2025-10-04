@@ -15,6 +15,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { JourneyProgress } from '@/components/JourneyProgress';
 
 const PlanTrip = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const PlanTrip = () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
-        navigate('/auth');
+        navigate('/');
         return;
       }
 
@@ -160,7 +161,31 @@ const PlanTrip = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5">
-      <div className="container mx-auto px-6 py-12 max-w-4xl">
+      <div className="container mx-auto px-6 py-12 max-w-4xl pt-20">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8"
+        >
+          <h1 className="heading-1 text-gradient mb-4">
+            Plan Your Trip
+          </h1>
+          <p className="body-large text-muted-foreground">
+            Tell us your destination and preferences
+          </p>
+        </motion.div>
+
+        {/* Journey Progress */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-8"
+        >
+          <JourneyProgress currentStep="planning" className="max-w-4xl mx-auto" />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

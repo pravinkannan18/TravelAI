@@ -5,11 +5,12 @@ import {
   Bitcoin, Camera, Calendar, MapPin, Clock,
   Star, Users, CheckCircle, Zap, Shield,
   Smartphone, Languages, Heart, Award, Hotel,
-  ShoppingCart
+  ShoppingCart, User, Home
 } from 'lucide-react';
 import { Hero3DScene } from '@/components/Hero3DScene';
 import { FeatureCard } from '@/components/FeatureCard';
 import { HowItWorksStep } from '@/components/HowItWorksStep';
+import { JourneyProgress } from '@/components/JourneyProgress';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -63,7 +64,7 @@ const Index = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient glow-primary leading-tight"
+              className="display-text mb-6 text-gradient glow-primary leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -74,12 +75,12 @@ const Index = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-medium"
+              className="body-large text-muted-foreground max-w-2xl mx-auto mb-8 font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
             >
-              <span className="text-primary font-semibold">Smart AI planning</span> • <span className="text-secondary font-semibold">Instant bookings</span> • <span className="text-accent font-semibold">Magical experiences</span>
+              AI planning • Instant booking • Digital souvenirs
             </motion.p>
 
             <motion.div 
@@ -90,31 +91,56 @@ const Index = () => {
             >
               <Button 
                 size="default" 
-                className="bg-gradient-to-r from-primary via-secondary to-accent hover:scale-105 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 text-base px-6 py-3 font-semibold relative overflow-hidden group"
-                onClick={() => window.location.href = '/auth'}
+                className="button-text bg-gradient-to-r from-primary via-secondary to-accent hover:scale-105 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 text-base px-6 py-3 font-semibold relative overflow-hidden group"
+                onClick={() => window.location.href = '/plan-trip'}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Plane className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Start Planning Free
+                Start Planning
               </Button>
               <Button 
                 size="default" 
                 variant="outline" 
-                className="border-2 border-primary/40 hover:border-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300 text-base px-6 py-3 font-semibold backdrop-blur-sm"
+                className="button-text border-2 border-primary/40 hover:border-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300 text-base px-6 py-3 font-semibold backdrop-blur-sm"
                 onClick={() => window.location.href = '/chat'}
               >
                 <MessageCircle className="w-4 h-4 mr-2 group-hover:bounce transition-all duration-300" />
-                Try AI Chat
+                AI Assistant
+              </Button>
+              <Button 
+                size="default" 
+                variant="outline" 
+                className="border-2 border-purple-500/40 hover:border-purple-500 hover:bg-purple-500/10 hover:scale-105 transition-all duration-300 text-base px-6 py-3 font-semibold backdrop-blur-sm"
+                onClick={() => window.location.href = '/local-guides'}
+              >
+                <Users className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                Local Guides
               </Button>
               <Button 
                 size="default" 
                 variant="outline" 
                 className="border-2 border-green-500/40 hover:border-green-500 hover:bg-green-500/10 hover:scale-105 transition-all duration-300 text-base px-6 py-3 font-semibold backdrop-blur-sm"
-                onClick={() => window.location.href = '/trip/demo/booking?type=flight'}
+                onClick={() => window.location.href = '/profile'}
               >
-                <ShoppingCart className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Try Booking Demo
+                <User className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                My Trips
               </Button>
+            </motion.div>
+
+            {/* Journey Progress Section */}
+            <motion.div 
+              className="mt-12 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <div className="text-center mb-6">
+                <h2 className="heading-2 text-gradient mb-2">
+                  Simple. Fast. Perfect.
+                </h2>
+                <p className="body-text text-muted-foreground">6 easy steps to your perfect trip</p>
+              </div>
+              <JourneyProgress currentStep="home" className="max-w-2xl mx-auto" />
             </motion.div>
 
             <motion.div 
@@ -190,13 +216,13 @@ const Index = () => {
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Powerful Features</span>
             </motion.div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
+            <h2 className="heading-1 text-gradient leading-tight mb-6">
               Everything You Need
               <br />
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">In One Place</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
-              From <span className="text-primary font-semibold">AI-powered itineraries</span> to <span className="text-secondary font-semibold">crypto payments</span>, TripGenie has every feature to make your journey <span className="text-accent font-semibold">extraordinary</span>
+            <p className="body-large text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
+              From <span className="text-primary font-semibold">AI itineraries</span> to <span className="text-secondary font-semibold">crypto payments</span>, experience travel made simple
             </p>
           </motion.div>
 
@@ -204,7 +230,7 @@ const Index = () => {
             <FeatureCard
               icon={Sparkles}
               title="AI Trip Planner"
-              description="Get custom day-by-day itineraries based on your budget, preferences, and travel style. Add breaks and adjust schedules easily."
+              description="Custom day-by-day itineraries based on your budget and preferences."
               delay={0}
               badge="Smart AI"
               features={[
@@ -217,7 +243,7 @@ const Index = () => {
             <FeatureCard
               icon={Calendar}
               title="Book Everything"
-              description="Reserve flights, hotels, and activities in one place. Real-time pricing and instant confirmation for seamless planning."
+              description="Reserve flights, hotels, and activities in one place."
               delay={0.1}
               badge="All-in-One"
               features={[
@@ -230,7 +256,7 @@ const Index = () => {
             <FeatureCard
               icon={Camera}
               title="Social Media Inspiration"
-              description="Paste Instagram or X links and let AI add those exact places to your trip. Turn inspiration into reality instantly."
+              description="Paste Instagram links and AI adds those places to your trip."
               delay={0.2}
               badge="Social Integration"
               features={[
@@ -243,7 +269,7 @@ const Index = () => {
             <FeatureCard
               icon={MessageCircle}
               title="24/7 AI Chat"
-              description="Ask questions anytime in your language. Get recommendations, adjust plans, and find answers on the go."
+              description="Ask questions anytime in your language."
               delay={0.3}
               badge="Always Available"
               features={[
@@ -256,7 +282,7 @@ const Index = () => {
             <FeatureCard
               icon={Bitcoin}
               title="Crypto Payments"
-              description="Pay with cryptocurrency like USDC for modern, secure transactions. Collect digital NFT souvenirs from your trips."
+              description="Pay with USDC and collect digital NFT souvenirs."
               delay={0.4}
               badge="Web3 Ready"
               features={[
@@ -269,7 +295,7 @@ const Index = () => {
             <FeatureCard
               icon={Leaf}
               title="Eco-Friendly Options"
-              description="Choose sustainable flights and hotels. Offset your carbon footprint and travel responsibly."
+              description="Choose sustainable options and offset your carbon footprint."
               delay={0.5}
               badge="Sustainable"
               features={[
@@ -282,7 +308,7 @@ const Index = () => {
             <FeatureCard
               icon={Languages}
               title="Multi-Language Support"
-              description="Chat and plan in 25+ languages including English, French, Spanish, Japanese, and more."
+              description="Chat and plan in 25+ languages worldwide."
               delay={0.6}
               badge="Global"
               features={[
@@ -295,7 +321,7 @@ const Index = () => {
             <FeatureCard
               icon={Shield}
               title="Visa & Document Help"
-              description="Get visa requirements, travel document checklists, and local guide connections for worry-free travel."
+              description="Get visa requirements and travel document checklists."
               delay={0.7}
               badge="Travel Ready"
               features={[
@@ -308,7 +334,7 @@ const Index = () => {
             <FeatureCard
               icon={Smartphone}
               title="Real-Time Updates"
-              description="Live weather, flight delays, and local events. Stay informed with instant notifications and updates."
+              description="Live weather, flight delays, and local events notifications."
               delay={0.8}
               badge="Live Data"
               features={[
@@ -335,12 +361,11 @@ const Index = () => {
               <ShoppingCart className="w-4 h-4 mr-2" />
               Try Booking Demo
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
+            <h2 className="heading-2 text-gradient mb-6">
               Experience Seamless Booking
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Test our comprehensive booking system with flights, hotels, and activities. 
-              Choose eco-friendly options and pay with crypto or traditional methods.
+            <p className="body-large text-muted-foreground max-w-3xl mx-auto">
+              Test our booking system with flights, hotels, and activities.
             </p>
           </motion.div>
 
@@ -452,32 +477,174 @@ const Index = () => {
               How It Works
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Planning your perfect trip is as easy as 1-2-3
+              Simple 6-step process to your perfect trip
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto space-y-12">
             <HowItWorksStep
-              icon={MapPin}
+              icon={Home}
               step={1}
-              title="Tell Us Your Dream Trip"
-              description="Enter your destination, dates, budget, and preferences. Want adventure in Paris? Food tours in Tokyo? We've got you covered."
+              title="Start Your Journey"
+              description="Click 'Start Planning' to begin."
               delay={0}
             />
             <HowItWorksStep
-              icon={Sparkles}
+              icon={MapPin}
               step={2}
-              title="AI Creates Your Perfect Plan"
-              description="Our AI builds a custom itinerary with flights, hotels, and activities. Add social media inspiration and eco-friendly options."
+              title="Plan Your Trip"
+              description="Enter destination, dates, budget."
               delay={0.1}
             />
             <HowItWorksStep
               icon={Calendar}
               step={3}
-              title="Book & Go"
-              description="Review, adjust, and book everything in one click. Pay with card or crypto, then get ready for an amazing adventure!"
+              title="View Itinerary"
+              description="See your complete trip plan."
               delay={0.2}
             />
+            <HowItWorksStep
+              icon={ShoppingCart}
+              step={4}
+              title="Book Everything"
+              description="Secure flights, hotels, activities."
+              delay={0.3}
+            />
+            <HowItWorksStep
+              icon={Users}
+              step={5}
+              title="Connect with Guides"
+              description="Find local guides and visa info."
+              delay={0.4}
+            />
+            <HowItWorksStep
+              icon={User}
+              step={6}
+              title="Manage & Enjoy"
+              description="Track trips and digital souvenirs."
+              delay={0.5}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Flow Demo Section */}
+      <section className="py-20 relative bg-gradient-to-br from-purple-500/5 via-cyan-500/5 to-pink-500/5">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white">
+              <Zap className="w-4 h-4 mr-2" />
+              See It In Action
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
+              From Inspiration to Vacation
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Go from idea to complete trip with bookings and guides in minutes.
+            </p>
+          </motion.div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Quick Start Cards */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0 }}
+                viewport={{ once: true }}
+                className="lg:col-span-1"
+              >
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center">
+                      <Plane className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">1. Start Planning</h3>
+                    <p className="text-muted-foreground mb-4">Enter "Paris, May 1-5, $1000" and your interests</p>
+                    <Button 
+                      className="w-full bg-gradient-to-r from-purple-500 to-cyan-500 hover:scale-105 transition-transform"
+                      onClick={() => window.location.href = '/plan-trip'}
+                    >
+                      Try Now
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="lg:col-span-1"
+              >
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">2. Get Your Itinerary</h3>
+                    <p className="text-muted-foreground mb-4">AI creates "Day 1: Montmartre hike, Café de Flore lunch"</p>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-2 border-cyan-500 hover:bg-cyan-50 hover:scale-105 transition-transform"
+                      onClick={() => window.location.href = '/profile'}
+                    >
+                      View Sample
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="lg:col-span-1"
+              >
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full flex items-center justify-center">
+                      <ShoppingCart className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">3. Book & Collect</h3>
+                    <p className="text-muted-foreground mb-4">One-click booking + earn Eiffel Tower NFT badge</p>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-2 border-emerald-500 hover:bg-emerald-50 hover:scale-105 transition-transform"
+                      onClick={() => window.location.href = '/booking'}
+                    >
+                      Try Booking
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            </div>
+
+            {/* Example Flow */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="mt-12 text-center"
+            >
+              <Card className="p-8 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-emerald-500/10 backdrop-blur-sm border-0 shadow-xl">
+                <h3 className="text-2xl font-bold mb-4">How It Works:</h3>
+                <div className="text-lg text-muted-foreground space-y-2">
+                  <p>💭 "I want to visit Paris"</p>
+                  <p>➡️ AI creates perfect itinerary</p>
+                  <p>✈️ Book with crypto or card</p>
+                  <p>🏆 Collect NFT souvenirs</p>
+                </div>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -494,11 +661,11 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gradient">
+            <h2 className="heading-1 text-gradient mb-6">
               Loved by Travelers
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              See what our users say about their TravelAI experience
+            <p className="body-large text-muted-foreground max-w-2xl mx-auto">
+              What our users say about TravelAI
             </p>
           </motion.div>
 
@@ -516,7 +683,7 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  "TravelAI planned my entire Tokyo trip in 5 minutes. The Instagram integration found that exact ramen shop I saw online!"
+                  "TravelAI planned my Tokyo trip in 5 minutes. Found that exact ramen shop I saw online!"
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary" />
@@ -541,7 +708,7 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  "Paid with crypto, got eco-friendly options, and the 24/7 chat helped me when my flight got delayed. Amazing!"
+                  "Crypto payments, eco options, and 24/7 chat. Amazing!"
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-accent" />
@@ -566,7 +733,7 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  "The Paris itinerary was perfect for my family. Real-time weather updates and break scheduling made it stress-free."
+                  "Perfect Paris itinerary. Real-time updates made it stress-free."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary" />
@@ -593,11 +760,11 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gradient">
+            <h2 className="heading-2 text-gradient mb-4">
               Simple Pricing
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Start free, upgrade when you need more. No hidden fees, just transparent pricing.
+            <p className="body-large text-muted-foreground max-w-2xl mx-auto">
+              Start free, upgrade when needed. No hidden fees.
             </p>
           </motion.div>
 
@@ -817,14 +984,14 @@ const Index = () => {
               <span className="bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">the World?</span>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
-              Join thousands of travelers who plan smarter with AI. Your next <span className="text-primary font-bold">extraordinary adventure</span> starts here.
+              Join thousands who plan smarter with AI. Your next <span className="text-primary font-bold">adventure</span> starts here.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary via-secondary to-accent hover:scale-110 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 text-xl px-16 py-8 font-bold relative overflow-hidden group"
-                onClick={() => window.location.href = '/auth'}
+                onClick={() => window.location.href = '/dashboard'}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Plane className="w-7 h-7 mr-3 group-hover:rotate-12 transition-transform duration-300" />

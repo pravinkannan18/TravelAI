@@ -14,8 +14,8 @@ export const Hero3DScene = () => {
         <pointLight position={[0, 10, 0]} color="#34d399" intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.5} color="#7dd3fc" />
         
-        {/* Enhanced stars with more depth */}
-        <Stars radius={150} depth={80} count={8000} factor={6} saturation={0} fade speed={2} />
+        {/* Enhanced stars with more depth and increased white intensity */}
+        <Stars radius={150} depth={80} count={8000} factor={8} saturation={0} fade={false} speed={2} />
         
         {/* Floating globe for subtle movement */}
         <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}>

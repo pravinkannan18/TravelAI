@@ -25,6 +25,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Enhanced3DBackground } from '@/components/Enhanced3DBackground';
 import { CustomizationPanel } from '@/components/CustomizationPanel';
+import { JourneyProgress } from '@/components/JourneyProgress';
 
 // Sample Paris Itinerary Data (May 1-5, 2026)
 const sampleItinerary = {
@@ -47,7 +48,7 @@ const sampleItinerary = {
       end_time: '11:30',
       activity_type: 'transportation',
       location: 'CDG Airport',
-      description: 'Flight arrival and airport transfer to hotel',
+      description: 'Flight arrival and transfer to hotel',
       coordinates: { lat: 49.0097, lng: 2.5479 },
       booking_options: {
         transport: { price: 35, eco_price: 30, provider: 'RER B Train' }
@@ -61,7 +62,7 @@ const sampleItinerary = {
       end_time: '13:00',
       activity_type: 'accommodation',
       location: 'Hotel des Grands Boulevards',
-      description: 'Boutique eco-friendly hotel in the 2nd arrondissement',
+      description: 'Eco-friendly hotel in 2nd arrondissement',
       coordinates: { lat: 48.8706, lng: 2.3439 },
       booking_options: {
         hotel: { price: 180, eco_price: 160, provider: 'Green Hotels Paris' }
@@ -75,7 +76,7 @@ const sampleItinerary = {
       end_time: '18:00',
       activity_type: 'sightseeing',
       location: 'Le Marais',
-      description: 'Explore historic Jewish quarter with local guide',
+      description: 'Historic Jewish quarter with local guide',
       coordinates: { lat: 48.8566, lng: 2.3636 },
       booking_options: {
         tour: { price: 45, eco_price: 40, provider: 'Paris Walking Tours' }
@@ -89,7 +90,7 @@ const sampleItinerary = {
       end_time: '21:00',
       activity_type: 'food',
       location: 'Rue des Rosiers',
-      description: 'Authentic Middle Eastern cuisine in historic setting',
+      description: 'Authentic Middle Eastern cuisine',
       coordinates: { lat: 48.8577, lng: 2.3617 }
     },
 
@@ -406,48 +407,18 @@ const EnhancedTripView = () => {
         onSettingsChange={setCustomSettings}
       />
 
-      {/* Enhanced Navigation */}
-      <nav className="border-b border-border bg-card/90 backdrop-blur-xl sticky top-0 z-40">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Button 
-              variant="ghost" 
-              onClick={() => navigate('/dashboard')}
-              className="hover:bg-primary/10 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Dashboard
-            </Button>
-            
-            <div className="flex items-center gap-2">
-              <img 
-                src="/tripgenie.png" 
-                alt="TripGenie"
-                className="h-8 w-auto"
-              />
-              <span className="font-bold text-lg">Enhanced Itinerary</span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" onClick={handleSavePlan}>
-                <Save className="w-4 h-4 mr-2" />
-                Save
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleShareTrip}>
-                <Share className="w-4 h-4 mr-2" />
-                Share
-              </Button>
-              <Button variant="outline" size="sm" onClick={() => navigate('/chat')}>
-                <MessageCircle className="w-4 h-4 mr-2" />
-                AI Chat
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Main Content */}
-      <div className="container mx-auto px-6 py-12 relative z-10">
+      <div className="container mx-auto px-6 py-12 relative z-10 pt-20">
+        {/* Journey Progress */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-8"
+        >
+          <JourneyProgress currentStep="itinerary" className="max-w-4xl mx-auto" />
+        </motion.div>
+
         {/* Enhanced Trip Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

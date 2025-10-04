@@ -22,7 +22,7 @@ const Dashboard = () => {
   const checkAuth = async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
-      navigate('/auth');
+      navigate('/');
       return;
     }
     setUser(session.user);
