@@ -25,16 +25,16 @@ function FloatingPaths({ position }: { position: number }) {
             >
                 <title>TravelAI Background Paths</title>
                 {paths.map((path, index) => {
-                    // Enhanced TravelAI theme colors with better visibility
+                    // Dimmed TravelAI theme colors for reduced brightness
                     const colorClasses = [
-                        "text-primary/60",      // stronger primary blue
-                        "text-secondary/50",    // stronger secondary purple
-                        "text-accent/55",       // stronger accent teal
-                        "text-primary/45",      // medium primary
-                        "text-secondary/40",    // medium secondary
-                        "text-cyan-400/50",     // additional cyan
-                        "text-blue-400/45",     // additional blue
-                        "text-purple-400/50",   // additional purple
+                        "text-primary/35",      // dimmed primary blue
+                        "text-secondary/30",    // dimmed secondary purple
+                        "text-accent/32",       // dimmed accent teal
+                        "text-primary/28",      // low primary
+                        "text-secondary/25",    // low secondary
+                        "text-cyan-400/30",     // dimmed cyan
+                        "text-blue-400/28",     // dimmed blue
+                        "text-purple-400/30",   // dimmed purple
                     ];
                     const colorClass = colorClasses[index % colorClasses.length];
                     
@@ -44,12 +44,12 @@ function FloatingPaths({ position }: { position: number }) {
                             d={path.d}
                             stroke="currentColor"
                             strokeWidth={path.width}
-                            strokeOpacity={0.3 + path.id * 0.04}
+                            strokeOpacity={0.2 + path.id * 0.02}
                             className={colorClass}
-                            initial={{ pathLength: 0.4, opacity: 0.8 }}
+                            initial={{ pathLength: 0.4, opacity: 0.5 }}
                             animate={{
                                 pathLength: [0.4, 1, 0.4],
-                                opacity: [0.4, 0.8, 0.4],
+                                opacity: [0.3, 0.6, 0.3],
                                 pathOffset: [0, 1, 0],
                             }}
                             transition={{

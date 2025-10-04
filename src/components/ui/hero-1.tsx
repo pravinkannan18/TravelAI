@@ -31,7 +31,7 @@ const Hero1 = () => {
       </div>
       
       {/* Subtle overlay for better contrast with chat interface */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/2 via-transparent to-secondary/2 z-[5]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/1 via-transparent to-secondary/1 z-[5]"></div>
       
       {/* Header */}
       <header className="flex justify-between items-center p-8 backdrop-blur-sm relative z-10">{" "}
@@ -39,7 +39,7 @@ const Hero1 = () => {
           <img 
             src="/tripgenie.png" 
             alt="TripGenie" 
-            className="h-10 w-auto group-hover:scale-110 transition-all duration-300"
+            className="h-12 w-auto group-hover:scale-110 transition-all duration-300"
           />
         </div>
       </header>

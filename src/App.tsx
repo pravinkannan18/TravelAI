@@ -8,6 +8,9 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import PlanTrip from "./pages/PlanTrip";
 import TripView from "./pages/TripView";
+import EnhancedTripView from "./pages/EnhancedTripView";
+import Booking from "./pages/Booking";
+import Features from "./pages/Features";
 import NotFound from "./pages/NotFound";
 import { TravelNavbar } from "./components/TravelNavbar";
 import { Hero1 } from "./components/ui/hero-1";
@@ -27,6 +30,9 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/plan-trip" element={<PlanTrip />} />
           <Route path="/trip/:id" element={<TripView />} />
+          <Route path="/trip/:id/enhanced" element={<EnhancedTripView />} />
+          <Route path="/trip/:id/booking" element={<Booking />} />
+          <Route path="/features" element={<Features />} />
           <Route path="/chat" element={<Hero1 />} />
           {/* Redirect old demo-chat route to chat */}
           <Route path="/demo-chat" element={<Navigate to="/chat" replace />} />
