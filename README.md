@@ -1,73 +1,194 @@
-# Welcome to your Lovable project
+# 🌍 TravelAI - Smart Travel Planning Platform
 
-## Project info
+A modern, AI-powered travel planning application built with React, TypeScript, and external Supabase integration.
 
-**URL**: https://lovable.dev/projects/6d6161d1-cf5e-447b-94ad-4c665d34ca25
+## 🏗️ Architecture
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/6d6161d1-cf5e-447b-94ad-4c665d34ca25) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+TravelAI (Containerized Frontend)
+├── React + TypeScript + Vite
+├── Docker Container (Production Ready)
+├── Nginx (Static File Serving)
+└── External Integrations:
+    ├── Supabase (Database + Auth + Functions)
+    ├── AI Services (Travel Planning)
+    └── Third-party APIs
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Quick Start
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Want to get up and running fast?** 
+👉 **[QUICK START GUIDE](QUICK-START.md)** - Ready in 5 minutes!
 
-**Use GitHub Codespaces**
+## 📚 Documentation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- 📖 **[Full Deployment Guide](DEPLOYMENT.md)** - Complete Docker & CI/CD setup
+- 🚀 **[Quick Start](QUICK-START.md)** - Get running in 5 minutes
+- 🔧 **[Development Setup](#development)** - Local development guide
 
-## What technologies are used for this project?
+## 🐳 Docker & CI/CD Ready
 
-This project is built with:
+This project includes:
+- ✅ Multi-stage Docker builds
+- ✅ GitHub Actions CI/CD pipeline
+- ✅ Automated testing and security scanning
+- ✅ Container registry integration
+- ✅ Production-ready deployments
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Quick Commands
 
-## How can I deploy this project?
+```bash
+# 🚀 Start development environment
+docker-compose -f docker-compose.dev.yml up
 
-Simply open [Lovable](https://lovable.dev/projects/6d6161d1-cf5e-447b-94ad-4c665d34ca25) and click on Share -> Publish.
+# 🏗️ Build production image
+scripts/build.bat  # Windows
+./scripts/build.sh # Linux/Mac
 
-## Can I connect a custom domain to my Lovable project?
+# 🌐 Deploy production
+docker-compose up -d
+```
 
-Yes, you can!
+## 🛠️ Tech Stack
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Radix UI
+- **3D Graphics**: Three.js, React Three Fiber
+- **Backend**: External Supabase (Database, Auth, Functions)
+- **State Management**: TanStack Query
+- **Deployment**: Docker, GitHub Actions
+- **Infrastructure**: No local database - uses external services
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 💻 Development
+
+### Prerequisites
+- Node.js 18+
+- Docker Desktop
+- Git
+
+### Local Setup
+
+1. **Clone and install:**
+   ```bash
+   git clone <your-repo-url>
+   cd TravelAI
+   cd frontend
+   npm install
+   ```
+
+2. **Environment setup:**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Supabase credentials
+   ```
+
+3. **Start development:**
+   ```bash
+   npm run dev
+   # Or with Docker: docker-compose -f docker-compose.dev.yml up
+   ```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production  
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## 🌐 Deployment Options
+
+| Platform | Setup | Documentation |
+|----------|-------|---------------|
+| **Docker** | `docker-compose up` | [Full Guide](DEPLOYMENT.md) |
+| **Vercel** | Connect GitHub repo | [Vercel Docs](https://vercel.com/docs) |
+| **Netlify** | Connect GitHub repo | [Netlify Docs](https://docs.netlify.com) |
+| **Railway** | `railway up` | [Railway Docs](https://docs.railway.app) |
+
+## 🔄 CI/CD Pipeline
+
+The GitHub Actions pipeline automatically:
+
+1. **🧪 Tests & Quality:**
+   - Runs ESLint and type checking
+   - Builds the application
+   - Security vulnerability scanning
+
+2. **🏗️ Build & Deploy:**
+   - Builds Docker images
+   - Pushes to GitHub Container Registry
+   - Deploys Supabase functions
+
+3. **🚀 Environments:**
+   - **Staging**: `develop` branch
+   - **Production**: `main` branch
+
+## 🗂️ Project Structure
+
+```
+TravelAI/
+├── 🐳 Docker files (Dockerfile, docker-compose.yml)
+├── 🔄 CI/CD (.github/workflows/)
+├── 📜 Scripts (scripts/)
+├── ☸️ Kubernetes (k8s/)
+└── frontend/
+    ├── src/
+    │   ├── components/     # React components
+    │   ├── pages/         # Page components
+    │   ├── hooks/         # Custom hooks
+    │   └── lib/           # Utilities
+    └── supabase/
+        └── functions/     # Edge functions
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+```env
+# Supabase
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+
+# Optional
+VITE_GOOGLE_ANALYTICS_ID=your-ga-id
+VITE_ENABLE_ANALYTICS=true
+```
+
+### Docker Configuration
+
+- **Development**: `docker-compose.dev.yml`
+- **Production**: `docker-compose.yml`
+- **Kubernetes**: `k8s/deployment.yaml`
+
+## 📊 Features
+
+- 🤖 **AI Travel Planning** - Smart itinerary generation
+- 🗺️ **Interactive Maps** - Explore destinations
+- 👥 **Local Guides** - Connect with local experts
+- 📱 **Responsive Design** - Works on all devices
+- 🔐 **Authentication** - Secure user accounts
+- 💬 **Real-time Chat** - AI-powered assistance
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test with Docker: `docker-compose -f docker-compose.dev.yml up`
+5. Submit a pull request
+
+The CI/CD pipeline will automatically test your changes!
+
+## 📞 Support
+
+- 📖 **Documentation**: Check [DEPLOYMENT.md](DEPLOYMENT.md)
+- 🐛 **Issues**: Open a GitHub issue
+- 💬 **Discussions**: Use GitHub Discussions
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+**🚀 Ready to deploy?** Start with the [Quick Start Guide](QUICK-START.md)!

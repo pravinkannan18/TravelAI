@@ -25,3 +25,6 @@ dist-ssr
 
 # Dependency directories and files
 node_modules/
+
+.env
+.env.example
