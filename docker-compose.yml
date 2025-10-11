@@ -14,6 +14,18 @@ services:
     networks:
       - travelai-network
 
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./Backend/.env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - travelai-network
+
 networks:
   travelai-network:
     driver: bridge
